@@ -14,6 +14,7 @@ Useful URLs
 - [Automation Panda - BDD](https://automationpanda.com/bdd/)
 - [Python BDD Framework Comparison](https://automationpanda.com/2019/04/02/python-bdd-framework-comparison/)
 - [Cucumber](https://cucumber.io/)
+- [Pytest](https://docs.pytest.org/en/latest/)
 
 URLs carried over from Selenium WebDriver with Python Course
 
