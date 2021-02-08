@@ -18,7 +18,7 @@ Useful URLs
 URLs carried over from Selenium WebDriver with Python Course
 
 - [Selenium WebDriver With Pyton](https://testautomationu.applitools.com/selenium-webdriver-python-tutorial/)
-- [TAU - Report](https://github.com/AndyLPK247/tau-intro-selenium-py)
+- [TAU - Repo](https://github.com/AndyLPK247/tau-intro-selenium-py)
 - [Beneficial To Have Followed Previously](https://testautomationu.applitools.com/python-tutorial/)
 - [Python can be downloaded from Python.Org](https://www.python.org/downloads/)
 - [WebDriver API - Read the Docs](https://selenium-python.readthedocs.io/api.html)
