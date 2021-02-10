@@ -14,6 +14,7 @@ Useful URLs
 - [Cucumber](https://cucumber.io/)
 - [Pytest](https://docs.pytest.org/en/latest/)
 - [Pytest Repo](https://github.com/pytest-dev/pytest-bdd)
+- [Pytest-BDD Documentation](https://pytest-bdd.readthedocs.io/en/stable/)
 
 URLs carried over from Selenium WebDriver with Python Course
 
@@ -24,6 +25,8 @@ URLs carried over from Selenium WebDriver with Python Course
 - [WebDriver API - Read the Docs](https://selenium-python.readthedocs.io/api.html)
 - [Waits - Implicit and Explicity](https://selenium-python.readthedocs.io/waits.html)
 
+
+
 Further Reading
 
 - Python Testing with pytest by Brian Okken
@@ -33,5 +36,26 @@ Further Reading
 
 - `pipenv install`
 - `pipenv install pytest`
-- `pipenv install pytest-bddpython`
+- `pipenv install pytest-bdd`
 
+## Chapter 3 - Writing A Basic Test
+
+Added `cucumber.py` file to manage cucumbers, known as a cucumber basket.
+
+Added folders in a pretty standard way:
+
+```bash
+tests
+    - features
+    - step_defs
+```
+
+### VS Code Extension Install
+
+Through Visual Studio Code Extensions search for and install
+
+- `Pytest-BDD`
+
+@then(Parser('the basket contains 6 cucumbers'))
+def basket_has_total(basker):
+    assert basket.count == 6
