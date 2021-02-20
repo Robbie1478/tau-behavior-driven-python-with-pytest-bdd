@@ -40,12 +40,11 @@ Further Reading
 
 ## Chapter 3 - Writing A Basic Test
 
-Added `cucumber.py` file to manage cucumbers, known as a cucumber basket.
+Added `cucumbers.py` file to manage cucumbers, known as a cucumber basket.
 
-Added folders in a pretty standard way:
+Added folders to within the tests folder:
 
 ```bash
-tests
     - features
     - step_defs
 ```
@@ -55,7 +54,3 @@ tests
 Through Visual Studio Code Extensions search for and install
 
 - `Pytest-BDD`
-
-@then(Parser('the basket contains 6 cucumbers'))
-def basket_has_total(basker):
-    assert basket.count == 6
