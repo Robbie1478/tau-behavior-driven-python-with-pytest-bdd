@@ -65,3 +65,12 @@ Scenario: Add cucumbers to a basket
     When 4 cucumbers are added to the basket
     Then the basket contains 6 cucumbers
 ```
+
+The format need to be like so
+
+```bash
+Scenario: Add cucumbers to a basket
+  Given the basket has 2 cucumbers
+  When 4 cucumbers are added to the basket
+  Then the basket contains 6 cucumbers
+```
