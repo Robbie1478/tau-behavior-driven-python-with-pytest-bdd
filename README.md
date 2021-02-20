@@ -54,3 +54,14 @@ Added folders to within the tests folder:
 Through Visual Studio Code Extensions search for and install
 
 - `Pytest-BDD`
+
+### Error Traps
+
+If when running the tests you get a failure, it is worth checking the formatting in the your feature file ensuring that the `When` and `Then` steps are not indented like below.
+
+```bash
+Scenario: Add cucumbers to a basket
+  Given the basket has 2 cucumbers
+    When 4 cucumbers are added to the basket
+    Then the basket contains 6 cucumbers
+```
