@@ -74,3 +74,8 @@ Scenario: Add cucumbers to a basket
   When 4 cucumbers are added to the basket
   Then the basket contains 6 cucumbers
 ```
+
+When running tests, remember, it is good practice to have test in the name so renaming `cucumbers_steps.py` to `test_cucumbers_steps.py` unless you give the command for the full path check out the below commands.
+
+- Using this command `pipenv run python -m pytest` means you need test in the name
+- Passing in the full path `pipenv run python -m pytest tests/step_defs/test_cucumbers_steps.py` would mean you wouldn't need to have `test` in the name of the `step definition`
