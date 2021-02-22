@@ -25,8 +25,6 @@ URLs carried over from Selenium WebDriver with Python Course
 - [WebDriver API - Read the Docs](https://selenium-python.readthedocs.io/api.html)
 - [Waits - Implicit and Explicity](https://selenium-python.readthedocs.io/waits.html)
 
-
-
 Further Reading
 
 - Python Testing with pytest by Brian Okken
@@ -79,3 +77,8 @@ When running tests, remember, it is good practice to have test in the name so re
 
 - Using this command `pipenv run python -m pytest` means you need test in the name
 - Passing in the full path `pipenv run python -m pytest tests/step_defs/test_cucumbers_steps.py` would mean you wouldn't need to have `test` in the name of the `step definition`
+
+## Chapter 4 - Parametrizing Steps
+
+- Withina feature file, a parameter can be indicated by using doulbe quotes around what we want to parametrize `Given the basket has "2" cucumbers`
+- We also need to import `Parsers module` from `pytest_bdd package` this can be done like so `from pytest_bdd import scenario, parsers, given, when, then`
