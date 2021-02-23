@@ -82,3 +82,46 @@ When running tests, remember, it is good practice to have test in the name so re
 
 - Withina feature file, a parameter can be indicated by using doulbe quotes around what we want to parametrize `Given the basket has "2" cucumbers`
 - We also need to import `Parsers module` from `pytest_bdd package` this can be done like so `from pytest_bdd import scenario, parsers, given, when, then`
+
+## Chapter 5 - Scenario Outline
+
+### Fature File Changes To Support Scenario Outlines
+
+The 1st steps to take is to plan out you scenario's in the feature file like in the below example.
+
+Note: An examples table has been added, as well angle brack `<initial>` where the value would normally be
+
+```bash
+  Scenario Outline: Add cucumbers to a basket
+    Given the basket has "<initial>" cucumbers
+    When "<some>" cucumbers are added to the basket
+    Then the basket contains "<total>" cucumbers
+
+    Examples: Amounts
+      | initial | some | total |
+      | 2       | 4    | 6     |
+      | 0       | 3    | 3     |
+      | 5       | 5    | 10    |
+```
+
+### Step Defintion Changes
+
+Added Converters dictionary and applied to the scenarios for the entire feature file
+
+```bash
+CONVERTERS = {
+    'initial': int,
+    'some': int,
+    'total': int,
+}
+
+scenarios('../features/cucumbers.feature', example_converters=CONVERTERS)
+```
+
+Example of changes to given step definition added/updated.  
+The reason we have 2 given steps for the same thing is so that we can use both if the need arises in future.
+
+```bash
+@given(parse_num('the basket has "{initial:Number}" cucumbers'), target_fixture='basket')
+@given('the basket has "<initial>" cucumbers')
+```
