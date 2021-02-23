@@ -28,9 +28,10 @@ def add_cucumbers(basket, some):
     basket.add(some)
 
 @when(parse_num('"{some:Number}" cucumbers are removed from the basket'))
-@when('"<some>" cucumbers are removed to the basket')
+@when('"<some>" cucumbers are removed from the basket')
 def remove_cucumbers(basket, some):
-    basket.remove(some)
+    basket.remove(some) 
+   
 
 @then(parse_num('the basket contains "{total:Number}" cucumbers'))
 @then('the basket contains "<total>" cucumbers')
