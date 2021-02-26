@@ -15,6 +15,10 @@ Useful URLs
 - [Pytest](https://docs.pytest.org/en/latest/)
 - [Pytest Repo](https://github.com/pytest-dev/pytest-bdd)
 - [Pytest-BDD Documentation](https://pytest-bdd.readthedocs.io/en/stable/)
+- [Requests Package](https://docs.python.requests.org/)
+- [Requests: HTTP for Humans](https://requests.readthedocs.io/en/master/)
+- [Instant Answer API](https://duckduckgo.com/api)
+
 
 URLs carried over from Selenium WebDriver with Python Course
 
