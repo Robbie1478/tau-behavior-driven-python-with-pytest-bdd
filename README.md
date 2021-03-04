@@ -19,7 +19,6 @@ Useful URLs
 - [Requests: HTTP for Humans](https://requests.readthedocs.io/en/master/)
 - [Instant Answer API](https://duckduckgo.com/api)
 
-
 URLs carried over from Selenium WebDriver with Python Course
 
 - [Selenium WebDriver With Pyton](https://testautomationu.applitools.com/selenium-webdriver-python-tutorial/)
@@ -129,3 +128,52 @@ The reason we have 2 given steps for the same thing is so that we can use both i
 @given(parse_num('the basket has "{initial:Number}" cucumbers'), target_fixture='basket')
 @given('the basket has "<initial>" cucumbers')
 ```
+
+## Chapter 8 - Filtering With Tags
+
+Tags can be added at `Feature`, `Scenario` or both `Feature and Scenario` level.
+`Feature` level tags give the benefit of all scenarios inheriting the tag.
+
+If you run these the tests now there will be warnings, something the course doesn't tell you do is create a `pytest.ini` at
+the root of the project and add the below into it.
+
+```bash
+[pytest]
+junit_family = xunit2
+markers =
+  add
+  cucumber-basket
+  duckduckgo
+  remove
+  service
+  web
+testpaths = tests
+```
+
+### Configuration Options
+
+[Configuration Files](https://docs.pytest.org/en/latest/customize.html) - should be loaded in the project root directory.
+
+### Chapter 8 - Filtering Tests
+
+You can run tests based on a folder or filter to specific tests
+
+- `python -m pytest tests` - runs tests at folder level
+- `python -m pytest -k "cucumber-basket"` - runs tests that contain a certain the substring 'one'
+- `python -m pytest -k "add"` - runs tests that contain the `add` tag in this case the tag is set at scenario level
+- `python -m pytest tests/step_defs/test_cucumbers_steps.py` - runs tests with the `cucumber-basket` tag
+- `python -m pytest -k "duckduckgo and service"` - runs tests with the `duckduckgo` and `service` tags
+- `python -m pytest -k "cucumber-basket or service"` - runs tests with `cucumber-basket or service` tags
+- `python -m pytest -k "not web"` - runs tests by exluding tags, which means anything that doesn't have a `web` tag
+
+### Command Console Output
+
+Some of these may not work in this repo as the necessary insalls may not have taken place.  Imported from another course in this series.
+
+- `python -m pytest --help`
+- `python -m pytest` - runs all tests
+- `python -m pytest --verbose or -v` - pytest prints more data, enables you to see more data at a glance
+- `python -m pytest --quite` - Gives dots of F if a test fails e.g ....F...
+- `python -m pytest --exitfirst or -exit`- Stops after the 1st failure
+- `python -m pytest --maxfail` - Gives flexibility on how many tests can fail prior to execution exiting
+- `python -m pytest --junit-xml report.xml` - will generate a file called report.xml
