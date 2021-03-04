@@ -150,11 +150,7 @@ markers =
 testpaths = tests
 ```
 
-### Configuration Options
-
-[Configuration Files](https://docs.pytest.org/en/latest/customize.html) - should be loaded in the project root directory.
-
-### Chapter 8 - Filtering Tests
+### Commands For Filering
 
 You can run tests based on a folder or filter to specific tests
 
