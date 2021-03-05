@@ -12,7 +12,11 @@ Feature: DuckDuckGo Web Browsing
   Scenario: Basic DuckDuckGo Search
     When the user searches for "panda"
     Then results are shown for "panda"
-
+  
+  @fails
+  Scenario: Basic DuckDuckGo Search Expected Fail
+    When the user searches for "panda"
+    Then results are wrong for "panda" intentionally fails to demonstrate
 
   Scenario: Lengthy DuckDuckGo Search
     When the user searches for the phrase:

@@ -16,26 +16,6 @@ DUCKDUCKGO_HOME = 'https://duckduckgo.com/'
 scenarios('../features/web.feature')
 
 
-# Fixtures
-
-@pytest.fixture
-def browser():
-    # For this example, we will use Firefox
-    # You can change this fixture to use other browsers, too.
-    # A better practice would be to get browser choice from a config file.
-    b = webdriver.Chrome()
-    b.implicitly_wait(10)
-    yield b
-    b.quit()
-
-
-# Given Steps
-
-@given('the DuckDuckGo home page is displayed', target_fixture='ddg_home')
-def ddg_home(browser):
-    browser.get(DUCKDUCKGO_HOME)
-
-
 # When Steps
 
 @when(parsers.parse('the user searches for "{text}"'))
@@ -53,6 +33,11 @@ def results_have_one(browser, phrase):
     results = browser.find_elements_by_xpath(xpath)
     assert len(results) > 0
 
+@then(parsers.parse('results are wrong for "{phrase}" intentionally fails to demonstrate'))
+def results_have_two(browser, phrase):
+    xpaths = "//div[@id='links']//*[contains(text(), '%s')]" % phrase
+    resultss = browser.find_elements_by_xpath(xpaths)
+    assert len(resultss) < 0
 
 @then(parsers.parse('results are shown for "{phrase}"'))
 def search_results(browser, phrase):

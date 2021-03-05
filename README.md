@@ -173,3 +173,80 @@ Some of these may not work in this repo as the necessary insalls may not have ta
 - `python -m pytest --exitfirst or -exit`- Stops after the 1st failure
 - `python -m pytest --maxfail` - Gives flexibility on how many tests can fail prior to execution exiting
 - `python -m pytest --junit-xml report.xml` - will generate a file called report.xml
+
+## Chapter 9 - Shared Steps and Hooks
+
+Added a `confest.py` file within the `step_defs` folder and populated it with contents from `test_web_steps.py` unless otherwise stated
+
+### Imports
+
+```bash
+import pytest
+
+from pytest_bdd import given
+from selenium import webdriver
+```
+
+### Constants
+
+```bash
+DUCKDUCKGO_HOME = 'https://duckduckgo.com/'
+```
+
+New hook written.
+
+### #Hooks
+
+```bash
+def pytest_bdd_step_error(request, feature, scenario, step, step_func, step_func_args, exception):
+    print(f'Test Step Failed: {step}')
+```
+
+### Browser Fixture
+
+```bash
+@pytest.fixture
+def browser():
+    # For this example, we will use Firefox
+    # You can change this fixture to use other browsers, too.
+    # A better practice would be to get browser choice from a config file.
+    b = webdriver.Chrome()
+    b.implicitly_wait(10)
+    yield b
+    b.quit()
+```
+
+### Given Step
+
+```bash
+@given('the DuckDuckGo home page is displayed', target_fixture='ddg_home')
+def ddg_home(browser):
+    browser.get(DUCKDUCKGO_HOME)
+```
+
+#### Testing Failure
+
+To prove these changes work in terms of the failure, I added a new `Scenario` wit `@faill tag` ensuring to update `pytest.ini` with the new tag and finally a `Then Step`.
+
+#### Scenario
+
+```bash
+  @fails
+  Scenario: Basic DuckDuckGo Search Expected Fail
+    When the user searches for "panda"
+    Then results are wrong for "panda" intentionally fails to demonstrate
+```
+
+#### Then Step
+
+```bash
+@then(parsers.parse('results are wrong for "{phrase}" intentionally fails to demonstrate'))
+def results_have_two(browser, phrase):
+    xpaths = "//div[@id='links']//*[contains(text(), '%s')]" % phrase
+    resultss = browser.find_elements_by_xpath(xpaths)
+    assert len(resultss) < 0
+```
+
+#### Command To Test New Failing Scenrio
+
+`python -m pytest -k "fails`
