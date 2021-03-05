@@ -226,7 +226,7 @@ def ddg_home(browser):
 
 #### Testing Failure
 
-To prove these changes work in terms of the failure, I added a new `Scenario` wit `@faill tag` ensuring to update `pytest.ini` with the new tag and finally a `Then Step`.
+To prove these changes work in terms of the failure, I added a new `Scenario` with `@fails tag` ensuring to update `pytest.ini` with the new tag and finally a `Then Step`.
 
 #### Scenario
 
